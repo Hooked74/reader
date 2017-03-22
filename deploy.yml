@@ -1,0 +1,29 @@
+---
+- hosts: "{{host}}"
+  remote_user: "{{user}}"
+  vars:
+    tmp: /tmp/epub.reader
+    target: "{{target}}" 
+    artifacts: "{{artifacts}}"
+
+  tasks:
+    - name: ping server
+      ping:
+
+    - name: clear tmp
+      file: path={{tmp}} state=absent
+
+    - name: make tmp
+      file: path={{tmp}} state=directory
+
+    - name: upload artifacts
+      unarchive: src={{artifacts}} dest={{tmp}}
+
+    - name: remove files
+      file: path={{target}} state=absent
+
+    - name: make target
+      file: path={{target}} state=directory
+
+    - name: move files
+      shell: mv {{tmp}}/artifacts/* {{target}}

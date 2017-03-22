@@ -1,0 +1,26 @@
+#spread {
+    @include span($spreadColumns);
+    height: $spreadHeight;
+    min-height: $spreadMinHeight;
+    background: rgba(mediumorchid, .8);
+
+    #pages {
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+
+    #fillingContainer {
+        position: absolute;
+        top: calc(100% + #{$footerHeight - $footerVerticalIndent});
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+    }
+
+    img, svg {
+        display: block;
+        max-width: 100%;
+    }
+}

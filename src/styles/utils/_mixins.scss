@@ -1,0 +1,81 @@
+@mixin shadow($shadow-size, $shadow-blur, $shadow-color) {
+    box-shadow: $shadow-size $shadow-size $shadow-blur $shadow-color, 0 0 $shadow-size lighten($shadow-color, 5%);
+}
+
+@mixin track() {
+    width: $track-width;
+    height: $track-height;
+    cursor: pointer;
+    transition: all .2s ease;
+}
+
+@mixin thumb() {
+    @include shadow($thumb-shadow-size, $thumb-shadow-blur, $thumb-shadow-color);
+    border: $thumb-border-width solid $thumb-border-color;
+    height: $thumb-height;
+    width: $thumb-width;
+    border-radius: $thumb-radius;
+    background: $thumb-color;
+    cursor: pointer;
+    
+    @media #{$mobileMedia} {
+        height: $thumb-device;
+        width: $thumb-device;    
+    }
+}
+
+@mixin ghostVerticalAlign($pseudo: 'before') {
+    &:#{$pseudo} {
+        content: '';
+        display: inline-block;
+        vertical-align: middle;
+        height: 100%; 
+        width: .1px;
+    }
+}
+
+@mixin cover() {
+    width: 100%;
+    height: 100%;
+}
+
+@mixin contain() {
+    @include cover;
+
+    position: absolute;
+    top: 0;
+    left: 0; 
+}
+
+@mixin center($width, $height) {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: $width;
+    height: $height;
+    margin-left: -($width / 2);
+    margin-top: -($height / 2);
+}
+
+/*PERFORMANCE*/
+@mixin accelerate($name) {
+  will-change: $name;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 900px;
+}
+
+@mixin headerIcon() {
+    font-size: 23px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    color: $headerIconColor;
+    transition: color .2s $primaryTiming;
+    
+    &:active {
+        color: rgba($headerIconColor, .8);
+    }
+             
+}

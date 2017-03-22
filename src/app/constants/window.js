@@ -1,0 +1,1 @@
+export const MIN_WIDTH_FOR_TWO_PAGES = 1024;

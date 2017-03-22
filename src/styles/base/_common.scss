@@ -1,0 +1,49 @@
+html {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    -webkit-text-size-adjust: none;
+    font-size: 16px;
+}
+
+body {
+    font-family: $primaryFonts;
+    overflow: hidden;
+
+    @media #{$minWidthMedia} {
+        overflow-x: auto;
+    }
+
+    @media #{$minHeightMedia} {
+        overflow-y: auto;
+    }
+}
+
+svg {
+    display: block;
+}
+
+.disabled {
+    pointer-events: none;
+    color: $disabledColor;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+.top-layer {
+    z-index: $appendZIndex;
+}
+
+.last-line-justify:after {
+    content: "1";
+    display: inline-block;
+    height: 0;
+    margin-left: 100%;
+    overflow: hidden;
+}

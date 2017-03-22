@@ -1,0 +1,11 @@
+.load-progress {
+    width: 100%;
+    height: $track-height;
+    display: inline-block;
+    background-color: $track-disabled-color;
+    .progress-item {
+        @include cover;
+        background-color: $primaryColor;
+        transition: width .2s $primaryTiming;
+    }
+}

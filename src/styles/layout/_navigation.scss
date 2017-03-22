@@ -1,0 +1,52 @@
+[class^=navigation] {
+    @include span($arrowColumns);
+    height: $spreadHeight;
+    min-height: $spreadMinHeight;
+    background: rgba(lawngreen, .7);
+}
+
+//     @include cover;
+//     @include ghostVerticalAlign;
+
+//     display: block;
+//     text-align: center;
+    
+//     i {
+//         font-size: $sidebarArrowFontSize;
+//         color: $primaryColor;
+//         display: inline-block;
+//     }
+    
+//     &:active {
+//         background-color: transparent;
+//     }
+    
+//     &:hover {
+//         background-color: $sidebarHoverColor;
+//         i {
+//             color: lighten($primaryColor, 5%);    
+//         }
+//     }
+    
+//     &.disabled i {
+//         color: $sidebarDisableArrowColor;
+//     }
+// }
+
+// %bar {
+//     z-index: $sidebarZIndex;
+//     width: $sidebarWidth;
+//     position: absolute;
+//     height: calc(100% - #{$footerHeight} - #{$headerHeight});
+//     top: $headerHeight;
+// }
+
+// #leftBar {
+//     left: 0;
+//     @extend %bar;
+// }
+
+// #rightBar {
+//     right: 0;
+//     @extend %bar;
+// }

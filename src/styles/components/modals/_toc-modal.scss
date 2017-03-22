@@ -1,0 +1,78 @@
+.modal-toc {
+    left: -$modalSideWidth;
+    box-shadow: $tocModalShadow;
+
+    .modal-body {
+        overflow: auto;
+        padding: $tocModalBodyVerticalIndent 0 ;
+    }
+    
+    .modal-header {
+        height: $tocModalHeaderHeight;
+    }
+
+    .modal-body {
+        height: calc(100% - #{$tocModalHeaderHeight} - #{$modalHeaderIndent * 2} - #{$tocModalBodyVerticalIndent * 2});
+    }
+
+    .tocitem {
+        position: relative;
+        text-decoration: none;
+        display: block;
+        padding: 5px $tocModalItemHorizontalIndent;
+        font-size: 14px;
+        color: #666;
+
+        &:before {
+            @include accelerate(color); 
+            position: absolute;
+            bottom: 5px;
+            font-weight: normal;
+            left: $tocModalItemHorizontalIndent;
+            right: $tocModalItemHorizontalIndent;
+            overflow: hidden;
+            z-index: -1;
+            white-space: nowrap;
+            color: currentColor;
+            content: ".................."
+                    ".................."
+                    ".................."
+                    ".................."
+                    ".................."
+                    ".................."
+                    ".................."
+                    ".................."
+                    ".................."
+                    ".................."
+                    ".................."
+                    ".................."
+                    ".................."
+                    ".................."
+                    ".................."
+                    ".................."
+        }
+
+        &:hover {
+            color: #444;    
+        }
+        
+        &:active {
+            color: #111;    
+        }
+
+        .title {
+            font-weight: bold;
+            padding-right: .33em;
+            background: $modalBackground;
+            margin-right: 6em;
+        }
+        
+        .pagenumber {
+            position: absolute;
+            right: $tocModalItemHorizontalIndent;
+            bottom: 5px;
+            padding-left: .33em;
+            background: $modalBackground;
+        }
+    } 
+}

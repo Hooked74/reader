@@ -1,0 +1,60 @@
+#loader {
+    @include contain;
+
+    text-align: center;
+    background-color: $loaderOverlayColor;
+    z-index: $loaderZIndex;
+
+    .content {
+        @include center($loaderLogoWidth, $loaderLogoHeight);
+
+        &:after {
+            @include center($loaderImageWidth, $loaderImageHeight);
+
+            content: "";
+            background-image: $logoUrl;
+            background-size: cover;
+            margin-top: (-$loaderImageHeight / 2) + 3;
+        }
+    }
+
+    .line-mask {
+        @include center($loaderLogoWidth, $loaderLogoHeight);
+        @include cover;
+
+        box-shadow: $loaderMaskShadow;
+        border-radius: 50%;
+        
+        animation-name: rotate;
+        animation-duration: 1.2s;
+        animation-delay: 30;
+        animation-iteration-count: infinite;
+        animation-fill-mode: backwards;
+        animation-timing-function: linear;
+    }
+
+    .text {
+        position: absolute;
+        top: $loaderTextTop;
+        white-space: nowrap;
+        font-size: $loaderTextFontSize;
+        color: $loaderTextColor;
+        width: $loaderTextWidth;
+        margin-left: $loaderTextLeftIndent;
+    }
+
+    [class^=dot] {
+        animation-name: blink;
+        animation-duration: 1.4s;
+        animation-iteration-count: infinite;
+        animation-fill-mode: both; 
+    }
+
+    .dot2 {
+        animation-delay: .2s;
+    }
+
+    .dot3 {
+        animation-delay: .4s;    
+    }
+}

@@ -1,0 +1,79 @@
+variables:
+    PROJECT_NAME: "epub.reader"
+    ARTIFACTS_NAME: "$PROJECT_NAME-$CI_BUILD_REF_NAME"
+
+#branch
+build-branch:
+  stage: build
+  script:
+    - npm run deploy:test
+  except:
+    - develop
+    - release
+    - master
+
+#develop
+build-develop:
+  stage: build
+  script: 
+    - npm run deploy:test
+    - mkdir artifacts
+    - cp -r dist/static artifacts/ 
+  artifacts:
+    name: $ARTIFACTS_NAME
+    paths:
+      - artifacts
+  only:
+    - develop
+
+deploy-develop:
+  stage: deploy
+  script:
+    - zip $ARTIFACTS_NAME.zip -r artifacts
+    - ansible-playbook -i hosts deploy.yml --extra-vars "host=test user=booksdev artifacts=$ARTIFACTS_NAME.zip target=/var/www/test-new-editor.bookscriptor.ru/www/editor"
+  only:
+    - develop
+
+#rc
+build-release:
+  stage: build
+  script: 
+    - npm run deploy:rc
+    - mkdir artifacts
+    - cp -r dist/static artifacts/ 
+  artifacts:
+    name: $ARTIFACTS_NAME
+    paths:
+      - artifacts
+  only:
+    - release
+
+deploy-release:
+  stage: deploy
+  script:
+    - zip $ARTIFACTS_NAME.zip -r artifacts
+    - ansible-playbook -i hosts deploy.yml --extra-vars "host=rc user=bookscriptor artifacts=$ARTIFACTS_NAME.zip target=/var/www/rc-editor.bookscriptor.ru/www/editor"
+  only:
+    - release
+
+#prod
+build-master:
+  stage: build
+  script: 
+    - npm run deploy:prod
+    - mkdir artifacts
+    - cp -r dist/static artifacts/ 
+  artifacts:
+    name: $ARTIFACTS_NAME
+    paths:
+      - artifacts
+  only:
+    - master
+
+deploy-master:
+  stage: deploy
+  script:
+    - zip $ARTIFACTS_NAME.zip -r artifacts
+    - ansible-playbook -i hosts deploy.yml --extra-vars "host=prod user=bookscriptor artifacts=$ARTIFACTS_NAME.zip target=/var/www/editor.bookscriptor.ru/www/editor"
+  only:
+    - master

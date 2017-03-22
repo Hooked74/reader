@@ -1,0 +1,8 @@
+[test]
+test.bookscriptor.ru
+
+[rc]
+rc ansible_host=127.0.0.1 ansible_port=10001
+
+[prod]
+prod ansible_host=127.0.0.1 ansible_port=10002

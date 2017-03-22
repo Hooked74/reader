@@ -1,0 +1,12 @@
+.overlay {
+    @include contain;
+
+    background-color: $overlayColor;
+    opacity: .7;
+    z-index: $overlayZIndex;
+    cursor: pointer;
+
+    &-transparent {
+        opacity: 0;
+    }
+}

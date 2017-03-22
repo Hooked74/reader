@@ -1,0 +1,153 @@
+//FONTS
+$primaryFonts: Open Sans,sans-serif;
+
+//SIZES
+$contentMinWidth: 768px;
+$contentMinHeight: 768px;
+$contentMaxPortraitWidth: 1024px;
+
+$headerHeight: 48px;
+$footerHeight: 66px;
+$spreadHeight: calc(100vh - #{$headerHeight} - #{$footerHeight});
+$spreadMinHeight: calc(#{$contentMinHeight} - #{$headerHeight} - #{$footerHeight});
+
+//$headerFontSizeIcon:  
+
+$wrapMinWidth: 1120px;
+$pageFontSize: 12px;
+
+$sidebarWidth: 80px;
+$sidebarDeviceWidth: 20px;
+$sidebarArrowFontSize: 7em;
+
+$footerCutWidth: 90px;
+$footerPageNumberSize: 14px;
+
+$modalWidth: 500px;
+$modalHeight: 300px;
+$modalSideWidth: 400px;
+$tocModalTitleDiff: 50px;
+$tocModalHeaderHeight: 28px;
+
+$loaderLogoWidth: 120px;
+$loaderLogoHeight: 120px;
+$loaderTextFontSize: 20px;
+$loaderTextWidth: 300px;
+$loaderImageWidth: 44px;
+$loaderImageHeight: 60px;
+
+//INDENTS
+$headerLeftRightIndents: 15px;
+$headerCenterIndents: 200px;
+$headerLogoHorizontalIndent: 10px;
+
+$footerVerticalIndent: 10px;
+
+$loaderTextTop: 140px;
+$loaderTextLeftIndent: -80px;
+
+$modalHeaderIndent: 15px;
+$tocModalBodyVerticalIndent: 15px;
+$tocModalItemHorizontalIndent: 30px;
+
+// COLORS
+$primaryColor:#48C8B6;
+$secondColor: #c81e32;
+$disabledColor: #aaa !important;
+
+$headerColor: #292931;
+$headerIconColor: #fefefe;
+$bookNameColor: #fefefe;
+$authorColor: #efefef;
+
+$overlayColor: #111;
+
+$footerPageNumberColor: #666;
+$pageNumberColor: #777;
+
+$modalBackground: #fff !default;
+$modalHeaderColor: #222;
+$closeButtonColor: #999;
+$usernameDropdownColor: $secondColor;
+
+$sidebarHoverColor: #fafafa;
+$sidebarDisableArrowColor: #ddd;
+
+$loaderOverlayColor: rgba(255, 255, 255, 0.4);
+$loaderMaskShadowColor: $secondColor;
+$loaderTextColor: #555;
+
+//Z-INDEXES
+$sidebarZIndex: 1;
+$footerZIndex: 4;
+$overlayZIndex: 5;
+$loaderZIndex: 10;
+$modalZIndex: 10;
+$appendZIndex: 100;
+
+//MEDIA QUERIES
+$maxPortraitMedia: 'only screen and (max-width : ' + ($contentMaxPortraitWidth - 1) + ')';
+$minWidthMedia: 'only screen and (max-width : ' + ($contentMinWidth - 1) + ')';
+$minHeightMedia: 'only screen and (max-height : ' + ($contentMinHeight - 1) + ')';
+
+//URLS
+$logoUrl: url(images/bookscriptor-logo.svg);
+$headerImage: url(images/pattern.png);
+
+//SHADOW
+$loaderMaskShadow: inset 0px 2px 0px 2px $loaderMaskShadowColor;
+$tocModalShadow: inset -7px 0px 6px -7px rgba(0, 0, 0, 0.5);
+
+//TIMING
+$animation-curve-fast-out-slow-in: cubic-bezier(0.4, 0, 0.2, 1) !default;
+$animation-curve-linear-out-slow-in: cubic-bezier(0, 0, 0.2, 1) !default;
+$animation-curve-fast-out-linear-in: cubic-bezier(0.4, 0, 1, 1) !default;
+$animation-curve-wave: cubic-bezier(0.19, 1, 0.22, 1) !default;
+$animation-curve-loaded: cubic-bezier(0.645, 0.045, 0.355, 1.000) !default;
+$animation-curve-swipe: cubic-bezier(0.215, 0.610, 0.355, 1.000)!default;
+$primaryTiming: $animation-curve-fast-out-slow-in !default;
+
+//SLIDER VARIABLES
+$track-color: $primaryColor;
+$thumb-color: $primaryColor;
+$track-disabled-color: #ccc;
+$thumb-disabled-color: #ccc;
+
+$thumb-radius: 25px;
+$thumb-height: 20px;
+$thumb-width: 20px;
+$thumb-device: 30px;
+$thumb-shadow-size: 0px;
+$thumb-shadow-blur: 0px;
+$thumb-shadow-color: #111;
+$thumb-border-width: 0px;
+$thumb-border-color: #fff;
+
+$track-width: calc(100% - #{$footerCutWidth});
+$track-height: 2px;
+$track-shadow-size: 0px;
+$track-shadow-blur: 0px;
+$track-shadow-color: #222;
+$track-border-width: 0px;
+$track-border-color: #000;
+
+$track-radius: 2px;
+$contrast: 5%;
+
+//SUSY
+$leftCountIcons: 4;
+$rightCountIcons: 1;
+$columns: 12;
+$arrowColumns: 1;
+$headerIconColumns: 2;
+$spreadColumns: $columns - $arrowColumns * 2;
+$susy: (
+  columns: $columns,
+  gutter-position: inside,
+  debug: (
+    image: show,
+    color: rgba(#66f, .25),
+    output: background,
+    toggle: top right,
+  )
+);

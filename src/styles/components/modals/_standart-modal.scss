@@ -1,0 +1,64 @@
+.modal {
+    user-select: none;
+    
+    background-color: $modalBackground;
+    width: $modalWidth;
+    min-height: $modalHeight;
+    position: absolute;
+    top: 20px;
+    left: calc(50% - #{$modalWidth / 2});
+    z-index: $modalZIndex;
+    
+    &-left {
+        left: 0;
+        @extend %modal-side;
+    }
+    
+    &-right {
+        left: initial;
+        right: 0;
+        @extend %modal-side;     
+    }
+
+    &-header {
+        color: $modalHeaderColor;
+        position: relative;
+        padding: $modalHeaderIndent;
+        font-size: 24px;
+        &:before {
+            content: '';
+            bottom: 0;
+            border: 1px solid $modalHeaderColor;
+            position: absolute;
+            left: 0;
+            right: 30px;
+        }
+    }
+    
+    &-body {}
+    
+    &-footer {}
+    
+    .close {
+        cursor: pointer;
+        font-size: 18px;
+        position: absolute;
+        right: 10px;
+        top: 5px;
+        color: $closeButtonColor;
+        
+        &:before {
+            content: '\2718';
+        }
+        
+        &:hover {
+            color: darken($closeButtonColor, 10%);
+        }
+    }
+}
+
+%modal-side {
+    top: 0;
+    height: 100%;
+    width: $modalSideWidth;   
+}
